@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title%}All trips{% endblock title %}
+{% block content %}
+    <div class="row align-items-center">
+        <h1>Trips</h1>
+    </div>
+    <div class="row d-flex ">
+        <div class="col-xs-12 col-md-6 align-items-center text-center px-5">
+            {% if trips_coming %}
+                <h2 class="">Upcoming</h2>
+                <div class="pt-3 ">
+                    {% for t in trips_coming %}
+                        <p class="text-start">  <a class="trips" href="{% url 'tripchecker:detail' t.id %}" > <span class="h4">{{ t.name }}</span> <span class="text-black-50 text-secondary"> ---- {{ t.start }} - {{ t.end }}</span></a></p>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <h3 class="pt-3">Planning to go anywhere?</h3>
+            {% endif %}
+            <button class=" my-2 btn btn-success  " type="button">
+                <a class="btn-customed" href="{% url 'tripchecker:new_trip'%}"> Add upcoming trip</a>
+            </button>
+        </div>
+        <div class="col-xs-12 col-md-6 align-items-center text-center">
+            {% if trips_passed %}
+                <h2>Passed</h2>
+                <div class="pt-3 ">
+                     {% for t in trips_passed %}
+                        <p class="text-start">  <a class="trips" href="{% url 'tripchecker:detail' t.id %}" > <span class="h4">{{ t.name }}</span> <span class="text-black-50 text-secondary"> ---- {{ t.start }} - {{ t.end }}</span></a></p>
+                     {% endfor %}
+                </div>
+            {% else %}
+                 <h3 class="pt-3">Had any trips in the past?</h3>
+            {% endif %}
+            <button class=" my-2 btn btn-success  " type="button">
+                <a class="btn-customed" href="{% url 'tripchecker:new_trip'%}"> Add visited places</a>
+            </button>
+        </div>
+    </div>
+    <div class="m-4 h-auto" >
+        {{ map | safe }}
+    </div>
+{% endblock content %}
