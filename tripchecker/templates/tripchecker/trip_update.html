@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{%block title%}Update trip to {{ object.name }}{% endblock title %}
+{%block content%}
+    <div class="row col-12 d-flex align-items-center">
+        <div class="col-1">
+            <p></p>
+        </div>
+        <div class="col-10 align-self-center">
+            <h1>Update trip to {{object.name}}</h1>
+            <form method="post">
+            {% csrf_token %}
+                {{form|crispy}}
+                <input class="btn btn-success me-2 btn-customed" type="submit" value="Update">
+                <button class="btn btn-warning me-2 " type="button">
+                    <a class="btn-customed" href="{% url 'tripchecker:trips_list'%}">Cancel</a>
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

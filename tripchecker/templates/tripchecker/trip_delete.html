@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{%block title%}Delete trip to {{object}}{% endblock title %}
+{%block content%}
+
+    <div style="height: 85vh" class="row col-12 d-flex align-items-center">
+        <div class="col-1"><p></p></div>
+            <div class="col-10 align-self-center">
+                <h1>Delete trip to {{object}}</h1>
+                <form method="post">
+                    {% csrf_token %}
+                        <p class="my-5 h5">Are you sure you want to delete trip to "{{object}}"?</p>
+                        <input type="submit" class="btn btn-danger me-2 btn-customed" value="Delete">
+                        <button class="btn btn-warning me-2 " type="button">
+                            <a class="btn-customed" href="{% url 'tripchecker:trips_list'%}">Cancel</a>
+                        </button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

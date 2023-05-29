@@ -1,0 +1,44 @@
+.btn-customed {text-decoration: none;
+                color: white;
+                font-weight: bold;
+                padding: 15px;}
+.btn-customed:hover {color: lightgoldenrodyellow;}
+
+.trips {text-decoration: none;
+                color: black;}
+
+.redish {
+    text-decoration: none;
+                color: black;
+                font-weight: bold;}
+.redish:hover {
+    color: #19000A}
+
+.greenish {
+    color: #274500}
+.greenish:hover {
+    color: #0F1B00}
+
+.yell {
+    background-color: #4C3B00}
+.yell:hover {
+    background-color: #1D1700}
+
+.logo {padding: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #589B00;
+    font-weight: bold;
+    background-color: lightyellow;}
+.logo:hover {
+    color: #0F1B00}
+
+.header-c {
+    background-color: #608678;}
+
+h1 {text-align: center;
+    padding-top: 15px;}
+
+h2 {text-align: center;}
+
+

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{%block title%}Trip to {{trip.name}} {% endblock title %}
+{% block content %}
+    <div style="height: 85vh" class="row col-12 d-flex align-items-center">
+        <div class="col-1">
+            <p></p>
+        </div>
+      <div class="col-10 align-self-center">
+        <h1>Details:</h1>
+        <p><b >City: </b>
+            <span class="h4"> {{ trip.name }}</span>
+        </p>
+        <p><b>Start date:</b>
+            <span class="h5"> {{ trip.start }}</span>
+        </p>
+        <p><b>End date:</b>
+            <span class="h5"> {{ trip.end }}</span>
+        </p>
+        {% if trip.description %}
+            <p ><b>Description:</b>
+                <span class="h5"> {{ trip.description }}</span>
+            </p>
+        {% endif %}
+
+        <div class="my-4">
+            <button class="btn btn-success me-2 " type="button">
+                <a class="btn-customed " href="{% url 'tripchecker:update' trip.id %}">Update trip</a>
+            </button>
+            <button class="btn btn-danger  me-2 " type="button">
+                <a class="btn-customed" href="{% url 'tripchecker:delete' trip.id %}">Delete trip</a>
+            </button>
+            <button class="btn btn-warning  me-2 " type="button">
+                <a class="btn-customed" href="{% url 'tripchecker:trips_list'%}">Cancel</a>
+            </button>
+        </div>
+      </div>
+    </div>
+{% endblock content%}
